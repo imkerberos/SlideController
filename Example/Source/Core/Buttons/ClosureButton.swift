@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Actionable: class {
+protocol Actionable: AnyObject {
     var didTouchUpInside: (() -> Void)? { get set }
 }
 
@@ -32,8 +32,8 @@ private extension PrivateClosureButton {
 }
 
 private typealias ActionableImplementation = ClosureButton
-extension ActionableImplementation : Actionable {
-     var didTouchUpInside: (() -> Void)? {
+extension ActionableImplementation: Actionable {
+    var didTouchUpInside: (() -> Void)? {
         get {
             return internalDidTouchUpInside
         }

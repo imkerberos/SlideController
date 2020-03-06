@@ -6,13 +6,13 @@
 //  Copyright © 2017 Touchlane LLC. All rights reserved.
 //
 
-import UIKit
 import SlideController
+import UIKit
 
 class CarouselController {
     private let internalView = CarouselView()
     private let slideController: SlideController<CarouselTitleScrollView, CarouselTitleItem>!
-    
+
     init() {
         var pagesContent: [SlideLifeCycleObjectBuilder<ImagePageLifeCycleObject>] = []
         for index in 1...5 {
@@ -23,7 +23,8 @@ class CarouselController {
         slideController = SlideController(
             pagesContent: pagesContent,
             startPageIndex: 0,
-            slideDirection: SlideDirection.horizontal)
+            slideDirection: SlideDirection.horizontal
+        )
         slideController.titleView.alignment = .bottom
         slideController.titleView.titleSize = 40
         slideController.isCarousel = true
@@ -31,7 +32,7 @@ class CarouselController {
         slideController.titleView.isTransparent = true
         internalView.contentView = slideController.view
     }
-    
+
     var optionsController: (ViewAccessible & ContentActionable)? {
         didSet {
             internalView.optionsView = optionsController?.view
@@ -44,7 +45,7 @@ extension ViewLifeCycleDependableImplementation: ViewLifeCycleDependable {
     func viewDidAppear() {
         slideController.viewDidAppear()
     }
-    
+
     func viewDidDisappear() {
         slideController.viewDidDisappear()
     }

@@ -6,8 +6,8 @@
 //  Copyright © 2017 Touchlane LLC. All rights reserved.
 //
 
-import UIKit
 import SlideController
+import UIKit
 
 class ImageController {
     private let internalView = ImageView()

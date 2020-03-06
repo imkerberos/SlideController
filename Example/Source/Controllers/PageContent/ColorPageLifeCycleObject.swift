@@ -6,17 +6,15 @@
 //  Copyright © 2017 Touchlane LLC. All rights reserved.
 //
 
-import UIKit
 import SlideController
+import UIKit
 
 class ColorPageLifeCycleObject: Initializable {
     var controller = ColorController()
-    
+
     // MARK: - InitialazableImplementation
-    
-    required init() {
-    
-    }
+
+    required init() {}
 }
 
 private typealias SlideColorPageLifeCycleImplementation = ColorPageLifeCycleObject
@@ -24,25 +22,23 @@ extension SlideColorPageLifeCycleImplementation: SlidePageLifeCycle {
     var isKeyboardResponsive: Bool {
         return false
     }
-    
-    func didAppear() { }
-    
-    func didDissapear() { }
-    
-    func viewDidLoad() { }
-    
-    func viewDidUnload() { }
-    
-    func didStartSliding() { }
-    
-    func didCancelSliding() { }
+
+    func didAppear() {}
+
+    func didDissapear() {}
+
+    func viewDidLoad() {}
+
+    func viewDidUnload() {}
+
+    func didStartSliding() {}
+
+    func didCancelSliding() {}
 }
 
 private typealias ViewableImplementation = ColorPageLifeCycleObject
 extension ViewableImplementation: Viewable {
     var view: UIView {
-        get {
-            return controller.view
-        }
+        return controller.view
     }
 }

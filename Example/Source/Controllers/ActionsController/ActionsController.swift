@@ -10,9 +10,9 @@ import UIKit
 
 class ActionsController: ContentActionable {
     private let internalView = ActionsView()
-    
+
     // MARK: ContentActionableImplementation
-    
+
     var isShowAdvancedActions: Bool {
         get {
             return internalView.isShowAdvancedActions
@@ -21,26 +21,26 @@ class ActionsController: ContentActionable {
             internalView.isShowAdvancedActions = newValue
         }
     }
-    
+
     var removeDidTapAction: Action? {
         didSet {
             internalView.removeButton.didTouchUpInside = removeDidTapAction
         }
     }
-    
+
     var insertDidTapAction: Action? {
         didSet {
             internalView.insertButton.didTouchUpInside = insertDidTapAction
         }
     }
-    
+
     var appendDidTapAction: Action? {
         didSet {
             internalView.appendButton.didTouchUpInside = appendDidTapAction
         }
     }
-    
-    var changePositionAction: ((Int) -> ())? {
+
+    var changePositionAction: ((Int) -> Void)? {
         didSet {
             internalView.changePositionAction = changePositionAction
         }

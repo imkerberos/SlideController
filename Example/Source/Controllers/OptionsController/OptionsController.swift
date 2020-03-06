@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OptionsControllerProtocol: class {
+protocol OptionsControllerProtocol: AnyObject {
     var openHorizontalDemoAction: (() -> Void)? { get set }
     var openVerticalDemoAction: (() -> Void)? { get set }
     var openCarouselDemoAction: (() -> Void)? { get set }
@@ -19,7 +19,7 @@ class OptionsController {
 }
 
 private typealias OptionsControllerProtocolImplementation = OptionsController
-extension OptionsControllerProtocolImplementation : OptionsControllerProtocol {
+extension OptionsControllerProtocolImplementation: OptionsControllerProtocol {
     var openHorizontalDemoAction: (() -> Void)? {
         get {
             return internalView.horizontalDemoButton.didTouchUpInside
@@ -28,7 +28,7 @@ extension OptionsControllerProtocolImplementation : OptionsControllerProtocol {
             internalView.horizontalDemoButton.didTouchUpInside = newValue
         }
     }
-    
+
     var openVerticalDemoAction: (() -> Void)? {
         get {
             return internalView.verticalDemoButton.didTouchUpInside
@@ -37,7 +37,7 @@ extension OptionsControllerProtocolImplementation : OptionsControllerProtocol {
             internalView.verticalDemoButton.didTouchUpInside = newValue
         }
     }
-    
+
     var openCarouselDemoAction: (() -> Void)? {
         get {
             return internalView.carouselDemoButton.didTouchUpInside
@@ -51,9 +51,7 @@ extension OptionsControllerProtocolImplementation : OptionsControllerProtocol {
 private typealias ViewAccessibleImplementation = OptionsController
 extension ViewAccessibleImplementation: ViewAccessible {
     var view: UIView {
-        get {
-            return internalView
-        }
+        return internalView
     }
 }
 
